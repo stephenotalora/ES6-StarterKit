@@ -1,0 +1,62 @@
+{
+  "name": "project-name",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "babel-node src/index.es6",
+    "lint": "eslint src/**/*.es6",
+    "compile": "babel --stage 0 -d dist/ src/",
+    "prepublish": "npm run compile",
+    "tape": "babel-node node_modules/argg src/test/*.js",
+    "istanbul": "npm run compile && istanbul cover --dir coverage/istanbul node_modules/argg dist/test/*.js --report lcovonly",
+    "coverage": "npm run compile && istanbul cover --dir coverage/istanbul node_modules/argg dist/test/*.js --report html",
+    "coveralls": "cat ./coverage/istanbul/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
+    "plato": "plato -d coverage/plato dist/index.js",
+    "test": "npm run istanbul && npm run coveralls"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vinniegarcia/es6-module-starter.git"
+  },
+  "keywords": [
+    "module",
+    "npm",
+    "starter",
+    "boilerplate",
+    "babel",
+    "es6",
+    "tape",
+    "istanbul"
+  ],
+  "author": "Jonathan S. Otalora <j.otalora@me.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "argg": "0.0.2",
+    "babel": "^5",
+    "babel-eslint": "^4.1.0",
+    "babel-preset-es2015": "^6.1.2",
+    "browserify": "^12.0.1",
+    "coveralls": "^2.11.4",
+    "debug": "^2.2.0",
+    "eslint": "^1.2.1",
+    "gulp": "^3.9.0",
+    "gulp-babel": "^6.1.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-tape": "0.0.5",
+    "gulp-watch": "^4.3.5",
+    "gulp-webserver": "^0.9.1",
+    "istanbul": "^0.3.18",
+    "plato": "^1.5.0",
+    "tap-colorize": "^1.2.0",
+    "tape": "^4.2.0",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "dependencies": {
+    "handlebars": "^4.0.4",
+    "jquery": "^2.1.4",
+    "superagent": "^1.4.0",
+    "superagent-jsonp": "0.0.6"
+  }
+}
