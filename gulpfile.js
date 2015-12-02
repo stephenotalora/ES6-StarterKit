@@ -9,21 +9,10 @@ var gulp = require('gulp'),
     tapColorize = require('tap-colorize'),
     babel = require('gulp-babel'),
     sourcemaps = require('gulp-sourcemaps'),
-    webserver = require('gulp-webserver');
+    webserver = require('gulp-webserver'),
+    path = require('./config/app_paths');
 
 // define some target paths
-var path = {
-    app: './',
-    src: {
-        js: 'src/**/*.js'
-    },
-    dist: {
-        js: 'dist/'
-    },
-    build: {
-        js: 'build/'
-    }
-};
 
 // task for unit testing
 gulp.task('test', function() {
